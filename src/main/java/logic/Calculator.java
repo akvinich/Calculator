@@ -1,6 +1,9 @@
+package logic;
+
+import files.DataFromFile;
+
 import java.util.*;
 import java.math.*;
-import java.util.*;
 import java.util.regex.*;
 
 public class Calculator {
@@ -16,8 +19,8 @@ public class Calculator {
     final static String regexSpace ="(\\p{Blank})+";
 
 
-    String[] regExpression = new String[]{regexBrackets, regexElev, regexMult, regexDiv, regexAdd, regexSub};
-    String[] spliters = new String[]{"\\(\\)", "\\^", "\\*", "\\/", "\\+", "\\-"};
+    final String[] regExpression = new String[]{regexBrackets, regexElev, regexMult, regexDiv, regexAdd, regexSub};
+    final String[] spliters = new String[]{"\\(\\)", "\\^", "\\*", "\\/", "\\+", "\\-"};
 
 
     public List<String> getResult() {
@@ -27,7 +30,7 @@ public class Calculator {
     public Calculator(){}
 
     // ОКРУГЛЕНИЕ ДО 5-ГО ЗНАКА ПОСЛЕ ЗАПЯТОЙ
-    public static double roundOfDouble(double d){
+    protected double roundOfDouble(double d){
         return new BigDecimal(d).setScale(5, RoundingMode.HALF_UP).doubleValue();
     }
 
@@ -270,7 +273,7 @@ public class Calculator {
 
 
 
-    public void Calculation(DataFromFile patternMatch){
+    public void calculation(DataFromFile patternMatch){
         for( String entry : patternMatch.getOrderFromFile() ) {
             StringBuffer buf = new StringBuffer(clearSpaces(entry));
             result.add(entry + " = " + operation(buf.toString()));

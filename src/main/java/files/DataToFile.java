@@ -1,3 +1,7 @@
+package files;
+
+import logic.Calculator;
+
 import java.io.*;
 
 public class DataToFile {

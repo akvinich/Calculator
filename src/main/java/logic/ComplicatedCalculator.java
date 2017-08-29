@@ -1,3 +1,5 @@
+package logic;
+
 import java.util.*;
 import java.util.regex.*;
 
@@ -9,8 +11,8 @@ public class ComplicatedCalculator extends Calculator {
     final static String regexSqrt = "\\√((\\-?)((\\d+)(\\.?)(\\d+)|(\\d+)))";
   //  final static String numberDot = "((\\-?)((\\d+)(\\.?)(\\d+)|(\\d+)))";
 
-    String[] regExpression = new String[]{regexBrackets, regexSin, regexCos, regexSqrt, regexElev, regexMult, regexDiv, regexAdd, regexSub};
-    String[] spliters = new String[]{"\\(\\)", "sin", "cos", "\\√", "\\^", "\\*", "\\/", "\\+", "\\-"};
+    final String[] regExpression = new String[]{regexBrackets, regexSin, regexCos, regexSqrt, regexElev, regexMult, regexDiv, regexAdd, regexSub};
+    final String[] spliters = new String[]{"\\(\\)", "sin", "cos", "\\√", "\\^", "\\*", "\\/", "\\+", "\\-"};
 
 
     @Override

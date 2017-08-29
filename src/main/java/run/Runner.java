@@ -1,3 +1,8 @@
+package run;
+
+import files.*;
+import logic.*;
+
 public class Runner {
     public static void main(String[] args){
 
@@ -6,7 +11,7 @@ public class Runner {
         DataFromFile data1 = new DataFromFile("E:\\input_1.txt");
         DataToFile dataTo1 = new DataToFile();
 
-        example1.Calculation(data1);
+        example1.calculation(data1);
         System.out.println(example1.getResult().toString());
 
         dataTo1.createFile("E:\\\\output_1.txt");
@@ -18,8 +23,9 @@ public class Runner {
         DataFromFile data2 = new DataFromFile("E:\\input_2.txt");
         DataToFile dataTo2 = new DataToFile();
 
-        example2.Calculation(data2);
+        example2.calculation(data2);
         System.out.println(example2.getResult().toString());
+
 
         dataTo2.createFile("E:\\\\output_2.txt");
         dataTo2.writeInfoFile("E:\\\\output_2.txt", example2);
@@ -30,8 +36,9 @@ public class Runner {
         DataFromFile data3 = new DataFromFile("E:\\input_3.txt");
         DataToFile dataTo3 = new DataToFile();
 
-        example3.Calculation(data3);
+        example3.calculation(data3);
         System.out.println(example3.getResult().toString());
+
 
         dataTo3.createFile("E:\\\\output_3.txt");
         dataTo3.writeInfoFile("E:\\\\output_3.txt", example3);
