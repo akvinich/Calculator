@@ -34,7 +34,6 @@ public class Calculator {
         return new BigDecimal(d).setScale(5, RoundingMode.HALF_UP).doubleValue();
     }
 
-
     protected boolean findMatch(String reg, String str){
         Pattern p1 = Pattern.compile(reg);
         Matcher m1 = p1.matcher(str);
