@@ -19,44 +19,42 @@ public class ComplicatedCalculator extends Calculator {
     protected String operation(String in) {
         StringBuffer bufferEntry = new StringBuffer(in);
         for (int i=0; i<regExpression.length; i++){
-            while (findMatch(regExpression[i],bufferEntry.toString())){
-                switch (spliters[i]) {
-                    case "sin":
-                        bufferEntry = new StringBuffer(sinModule(bufferEntry.toString()));
-                        break;
+            while (findMatch(regExpression[i],bufferEntry.toString())) switch (spliters[i]) {
+                case "sin":
+                    bufferEntry = new StringBuffer(sinModule(bufferEntry.toString()));
+                    break;
 
-                    case "cos":
-                        bufferEntry = new StringBuffer(cosModule(bufferEntry.toString()));
-                        break;
+                case "cos":
+                    bufferEntry = new StringBuffer(cosModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\+":
-                        bufferEntry = new StringBuffer(addModule(bufferEntry.toString()));
-                        break;
+                case "\\+":
+                    bufferEntry = new StringBuffer(addModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\-":
-                        bufferEntry = new StringBuffer(subModule(bufferEntry.toString()));
-                        break;
+                case "\\-":
+                    bufferEntry = new StringBuffer(subModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\*":
-                        bufferEntry = new StringBuffer(multModule(bufferEntry.toString()));
-                        break;
+                case "\\*":
+                    bufferEntry = new StringBuffer(multModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\/":
-                        bufferEntry = new StringBuffer(divModule(bufferEntry.toString()));
-                        break;
+                case "\\/":
+                    bufferEntry = new StringBuffer(divModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\^":
-                        bufferEntry = new StringBuffer(elevateModule(bufferEntry.toString()));
-                        break;
+                case "\\^":
+                    bufferEntry = new StringBuffer(elevateModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\(\\)":
-                        bufferEntry = new StringBuffer(bracketsModule(bufferEntry.toString()));
-                        break;
+                case "\\(\\)":
+                    bufferEntry = new StringBuffer(bracketsModule(bufferEntry.toString()));
+                    break;
 
-                    case "\\√":
-                        bufferEntry = new StringBuffer(sqrtModule(bufferEntry.toString()));
-                        break;
-                }
+                case "\\√":
+                    bufferEntry = new StringBuffer(sqrtModule(bufferEntry.toString()));
+                    break;
             }
         }
         return  bufferEntry.toString();
@@ -96,8 +94,6 @@ public class ComplicatedCalculator extends Calculator {
                 valueDouble[j] = Double.parseDouble(values[j]);
             }
         }
-
-
         Formatter f= new Formatter();
         StringBuilder resultStr = new StringBuilder(changeExpression("\\,",f.format("%.5f",roundOfDouble( Math.cos(valueDouble[1]))).toString(),"."));
         buf = new StringBuffer(changeExpression("cos"+values[1], entry, clearCertain(resultStr.toString())));

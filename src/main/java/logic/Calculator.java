@@ -225,6 +225,7 @@ public class Calculator {
         StringBuffer buf = new StringBuffer(findMatchExpression(regexBrackets, entry));
         buf = new StringBuffer(buf.deleteCharAt(buf.length()-1));
         buf = new StringBuffer(buf.deleteCharAt(0));
+
         String result = operation(buf.toString());
         buf = new StringBuffer(entry);
         int positionS = startPositionMatch(regexBrackets,entry);

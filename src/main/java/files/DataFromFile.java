@@ -12,28 +12,22 @@ public class DataFromFile {
     }
 
     public DataFromFile(String comand){
-        BufferedReader reader = null;
-        try{
-            File myfile = new File(comand);
-            FileReader fr = new FileReader(myfile);
-            reader = new BufferedReader(fr);
+        File myfile = new File(comand);
+        try(FileReader fr = new FileReader(myfile); BufferedReader reader = new BufferedReader(fr);){
             String line = "";
             while ((line = reader.readLine()) != null) {
                 orderFromFile.add(line);
             }
         }catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+    }
 
-
+    @Override
+    public String toString() {
+        return "DataFromFile{" +
+                "orderFromFile=" + orderFromFile +
+                '}';
     }
 }
 

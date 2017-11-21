@@ -5,7 +5,7 @@ import logic.*;
 
 public class Runner {
     public static void main(String[] args){
-
+        System.out.println("java -Dfile.encoding=UTF-8");
 //---------------------input_1------------------------------
         Calculator example1 = new Calculator();
         DataFromFile data1 = new DataFromFile("input_1.txt");
